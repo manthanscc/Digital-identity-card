@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
-import { ProfileWithRelations } from '../types/database';
 import { ProfileData } from '../types/profile';
 
 export const useProfile = (profileId?: string) => {

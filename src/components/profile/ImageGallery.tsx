@@ -49,9 +49,6 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
     setScrollPosition(newPosition);
   };
 
-  const displayImages = showOnlyThree ? images.slice(0, 3) : images;
-  const hasMoreImages = showOnlyThree && images.length > 3;
-
   if (!images.length) return null;
 
   return (

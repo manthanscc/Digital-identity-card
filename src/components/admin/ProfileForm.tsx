@@ -10,10 +10,9 @@ import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Checkbox } from '../ui/checkbox';
-import { supabase, uploadImage, deleteImage, getImagePath } from '../../lib/supabase';
-import { ProfileWithRelations } from '../../types/database';
+import { supabase, uploadImage } from '../../lib/supabase';
 import { toast } from 'sonner';
-import { Plus, Trash2, Upload, X } from 'lucide-react';
+import { Plus, Trash2, X } from 'lucide-react';
 import { v4 as uuidv4 } from 'uuid';
 
 const profileSchema = z.object({
@@ -129,7 +128,7 @@ export const ProfileForm: React.FC = () => {
       
       // Set business hours
       const businessHours = weekDays.map(day => {
-        const existing = profile.business_hours?.find(bh => bh.day === day);
+        const existing = profile.business_hours?.find((bh: { day: string }) => bh.day === day);
         return existing || { day, hours: '9:00 AM - 5:00 PM', is_open: true };
       });
       setValue('business_hours', businessHours);
@@ -139,7 +138,7 @@ export const ProfileForm: React.FC = () => {
       setCoverImagePreview(profile.cover_image);
       
       // Set gallery images
-      const galleryUrls = profile.gallery_images?.map(img => img.image_url) || [];
+      const galleryUrls = profile.gallery_images?.map((img: { image_url: string }) => img.image_url) || [];
       setExistingGalleryImages(galleryUrls);
 
     } catch (error) {

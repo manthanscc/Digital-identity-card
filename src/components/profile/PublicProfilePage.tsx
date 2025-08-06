@@ -90,14 +90,14 @@ export const PublicProfilePage: React.FC = () => {
             </div>
 
             {/* Mobile-optimized QR section */}
-            <div className="xl:hidden mt-8 w-full max-w-md mx-auto">
+            {/* <div className="xl:hidden mt-8 w-full max-w-md mx-auto">
               <div className="animate-in slide-in-from-bottom duration-1000 delay-600">
                 <QRCodeCard 
                   profileUrl={profileUrl} 
                   profileName={profile.name} 
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
